@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './Header'
 import { fetchUser } from '../actions'
 import Landing from './Landing'
+import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew'
 
 class App extends React.Component {
 	componentDidMount() {
@@ -17,6 +19,8 @@ class App extends React.Component {
 					<Header />
 					<div className="container">
 						<Route exact path="/" component={Landing} />
+						<Route exact path="/surveys" component={Dashboard} />
+						<Route path="/surveys/new" component={SurveyNew} />
 					</div>
 				</BrowserRouter>
 			</div>

@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reduxThunk from 'redux-thunk'
+import axios from 'axios'
 import 'materialize-css/dist/css/materialize.min.css'
 import App from './components/App'
 import reducers from './reducers'
+window.axios = axios;
 
-const store = createStore(reducers, applyMiddleware(reduxThunk))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__||compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)))
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -15,5 +18,3 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root')
 )
-console.log('stripe kty', process.env.REACT_APP_STRIPE_KEY)
-console.log('node', process.env.NODE_ENV)

@@ -1,1 +1,5 @@
 export const FETCH_USER = 'FETCH_USER'
+export const FETCH_SURVEYS = 'FETCH_SURVEYS'
+export const SAVE_FORM = 'SAVE_FORM'
+export const RESET_FORM = 'RESET_FORM'
+export const SUBMIT_SURVEY = 'SUBMIT_SURVEY'
